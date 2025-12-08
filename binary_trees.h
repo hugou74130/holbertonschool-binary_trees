@@ -13,6 +13,7 @@
  * @left: Pointeur vers le nœud enfant gauche
  * @right: Pointeur vers le nœud enfant droit
  */
+
 struct binary_tree_s
 {
 	int n;
