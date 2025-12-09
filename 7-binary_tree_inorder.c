@@ -10,7 +10,6 @@
  *  Does nothing if tree or func is NULL.
  * Return: Nothing (void)
  */
-
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
 {
 	if (tree == NULL || func == NULL)

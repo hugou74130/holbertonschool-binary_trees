@@ -6,7 +6,6 @@
  *
  * Return: Depth of the node, or 0 if tree is NULL
  */
-
 size_t binary_tree_depth(const binary_tree_t *tree)
 {
 	if (tree == NULL)
