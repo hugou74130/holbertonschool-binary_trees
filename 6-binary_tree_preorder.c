@@ -6,8 +6,8 @@
  * @func: Pointer to a function to call for each node
  *
  * Description: Traverses the tree in pre-order (node, left, right).
- * Calls func with the value of each node. Does nothing if tree or func is NULL.
- *
+ * Calls func with the value of each node.
+ *  Does nothing if tree or func is NULL.
  * Return: Nothing (void)
  */
 
