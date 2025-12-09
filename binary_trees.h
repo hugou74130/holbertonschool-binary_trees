@@ -49,38 +49,44 @@ int binary_tree_balance(const binary_tree_t *tree);
 
 void binary_tree_print(const binary_tree_t *tree)
 {
-    int h = 0, i, j;
-    const binary_tree_t *stack[1024];
-    int level[1024], top = -1;
-
     if (!tree)
         return;
 
-    stack[++top] = tree;
-    level[top] = 0;
+    int stack_i = 0;
+    const binary_tree_t *stack[2048];
+    int depth[2048];
 
-    while (top >= 0)
+    stack[0] = tree;
+    depth[0] = 0;
+    stack_i = 1;
+
+    while (stack_i > 0)
     {
-        const binary_tree_t *node = stack[top];
-        int l = level[top--];
+        stack_i--;
+        const binary_tree_t *node = stack[stack_i];
+        int d = depth[stack_i];
 
-        for (j = 0; j < l; j++)
-            printf("│   ");
-
-        if (l == 0)
-            printf("Root: %d\n", node->n);
+        if (d == 0)
+            printf("%d\n", node->n);
         else
-            printf("├── %d\n", node->n);
+        {
+            int len = d * 4;
+            for (int i = 0; i < len; i++)
+                putchar('-');
+            printf(". %d\n", node->n);
+        }
 
         if (node->right)
         {
-            stack[++top] = node->right;
-            level[top] = l + 1;
+            stack[stack_i] = node->right;
+            depth[stack_i] = d + 1;
+            stack_i++;
         }
         if (node->left)
         {
-            stack[++top] = node->left;
-            level[top] = l + 1;
+            stack[stack_i] = node->left;
+            depth[stack_i] = d + 1;
+            stack_i++;
         }
     }
 }
