@@ -1,4 +1,4 @@
-#include "binary_trees.h"
+#include "binary_trees.h" /* Inclusion du fichier d'en-tête contenant les définitions des structures et prototypes */
 
 /**
  * binary_tree_inorder - Goes through a binary tree using pre-order traversal
@@ -11,11 +11,11 @@
  * Return: Nothing (void)
  */
 void binary_tree_inorder(const binary_tree_t *tree, void (*func)(int))
-{
-	if (tree == NULL || func == NULL)
-		return;
+{ /* Début de la fonction qui prend un pointeur vers l'arbre et un pointeur de fonction en paramètres */
+	if (tree == NULL || func == NULL) /* Vérification si tree ou func est NULL */
+		return; /* Si l'un des deux est NULL, on sort de la fonction sans rien faire */
 
-	binary_tree_inorder(tree->left, func);
-	func(tree->n);
-	binary_tree_inorder(tree->right, func);
+	binary_tree_inorder(tree->left, func); /* Appel récursif pour parcourir d'abord le sous-arbre gauche */
+	func(tree->n); /* Appel de la fonction func avec la valeur du nœud courant (traitement du nœud) */
+	binary_tree_inorder(tree->right, func); /* Appel récursif pour parcourir ensuite le sous-arbre droit */
 }
